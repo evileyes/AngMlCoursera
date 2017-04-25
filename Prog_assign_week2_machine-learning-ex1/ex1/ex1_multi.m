@@ -90,28 +90,28 @@ figure;
 hold on;
 xlabel('Number of iterations');
 ylabel('Cost J');
-num_iters = 150;
+num_iters = 200;
 start_point = 1;
 
 alpha1 = 0.01;
 theta1 = zeros(3, 1);
 [theta1, J_history1] = gradientDescentMulti(X, y, theta1, alpha1, num_iters);
 plot(start_point:numel(J_history1), J_history1(start_point:numel(J_history1)), 'k', 'LineWidth', 2);
-J_history1(numel(J_history1))
+J_history1(numel(J_history1));
 
 alpha2 = 0.3;
 theta2 = zeros(3, 1);
 [theta2, J_history2] = gradientDescentMulti(X, y, theta2, alpha2, num_iters);
 plot(start_point:numel(J_history2), J_history2(start_point:numel(J_history2)), 'g', 'LineWidth', 2);
-J_history2(numel(J_history2))
+J_history2(numel(J_history2));
 alpha2
-theta2
+num_iters
 hold off;
 
 
 % Display gradient descent's result
 fprintf('Theta computed from gradient descent: \n');
-%fprintf(' %f \n', theta2);
+fprintf(' %f \n', theta2);
 fprintf('\n');
 
 % Estimate the price of a 1650 sq-ft, 3 br house
@@ -150,18 +150,18 @@ fprintf('Solving with normal equations...\n');
 
 %% Load Data
 data = csvread('ex1data2.txt');
-X = data(:, 1:2);
+%X = data(:, 1:2);
 y = data(:, 3);
 m = length(y);
 
 % Add intercept term to X
-X = [ones(m, 1) X];
+%X = [ones(m, 1) X];
 
 % Calculate the parameters from the normal equation
 theta = normalEqn(X, y);
 
 % Display normal equation's result
-fprintf('Theta computed from the normal equations: \n');
+fprintf('Theta computed from the normal equations (feature normalized input): \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
 
@@ -170,8 +170,8 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 price = 0; % You should change this
 
-price = [1, 1650, 3] * theta;
-%price = [1 sizea bed] * theta;
+%price = [1, 1650, 3] * theta;
+price = [1 sizea bed] * theta;
 chng = (price1 - price)*100/price1;
 
 

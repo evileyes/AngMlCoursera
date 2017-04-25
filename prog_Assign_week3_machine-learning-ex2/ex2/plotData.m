@@ -14,6 +14,10 @@ figure; hold on;
 
 
 
+positiveYIndexes = find( y == 1 );
+negativeYIndexes = find( y == 0 );
+plot(X(positiveYIndexes,1), X(positiveYIndexes,2), 'k+', 'LineWidth', 2, 'MarkerSize', 7);
+plot(X(negativeYIndexes,1), X(negativeYIndexes,2), 'ko', 'MarkerSize', 7, 'MarkerFaceColor','y');
 
 
 
